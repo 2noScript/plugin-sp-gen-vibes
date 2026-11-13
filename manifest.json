@@ -2,12 +2,12 @@
   "pluginId": "vibes",
   "name": "Vibes",
   "publisher": "2noScript",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "contractVersion": 1,
   "providers": [
     {
       "providerId": "VIBES",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "contractVersion": 1,
       "name": "Vibes",
       "auth": {
@@ -174,7 +174,9 @@
         "https://video.xx.fbcdn.net",
         "https://lookaside.fbsbx.com",
         "https://www.meta.ai"
-      ]
+      ],
+      "logoUrl": "https://cdn.jsdelivr.net/gh/T2Bamboo/w-resources-icos@main/icos/vibes.png",
+      "websiteUrl": "https://vibes.ai/"
     }
   ]
 }
