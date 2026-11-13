@@ -1,0 +1,180 @@
+{
+  "pluginId": "vibes",
+  "name": "Vibes",
+  "publisher": "2noScript",
+  "version": "0.1.0",
+  "contractVersion": 1,
+  "providers": [
+    {
+      "providerId": "VIBES",
+      "version": "0.1.0",
+      "contractVersion": 1,
+      "name": "Vibes",
+      "auth": {
+        "kind": "WEBVIEW",
+        "loginUrl": "https://vibes.ai/",
+        "navigationOrigins": [
+          "https://vibes.ai",
+          "https://auth.meta.com",
+          "https://www.facebook.com",
+          "https://www.instagram.com",
+          "https://accountscenter.meta.com"
+        ],
+        "pageOrigins": [
+          "https://vibes.ai"
+        ],
+        "identityProvider": "META"
+      },
+      "accountFields": [
+        {
+          "id": "projectUrl",
+          "label": "Project URL",
+          "type": "TEXT",
+          "required": true
+        },
+        {
+          "id": "proxyUrl",
+          "label": "HTTP proxy URL",
+          "type": "TEXT"
+        }
+      ],
+      "operations": {
+        "IMAGE": {
+          "transport": "HTTP",
+          "models": [
+            {
+              "id": "midjen-base",
+              "label": "Midjen Base"
+            }
+          ],
+          "fields": [
+            {
+              "id": "ratio",
+              "label": "Aspect ratio",
+              "type": "SELECT",
+              "required": true,
+              "choices": [
+                "1:1",
+                "9:16",
+                "16:9"
+              ]
+            }
+          ]
+        },
+        "VIDEO": {
+          "transport": "HTTP",
+          "models": [
+            {
+              "id": "midjen-short",
+              "label": "Midjen Short"
+            }
+          ],
+          "fields": [
+            {
+              "id": "ratio",
+              "label": "Aspect ratio",
+              "type": "SELECT",
+              "required": true,
+              "choices": [
+                "16:9",
+                "9:16",
+                "1:1"
+              ]
+            },
+            {
+              "id": "duration",
+              "label": "Duration (seconds)",
+              "type": "NUMBER",
+              "default": 5
+            },
+            {
+              "id": "resolution",
+              "label": "Resolution",
+              "type": "SELECT",
+              "choices": [
+                "480p",
+                "720p"
+              ]
+            }
+          ]
+        },
+        "CHARACTER": {
+          "transport": "HTTP",
+          "models": [
+            {
+              "id": "midjen-base",
+              "label": "Midjen Base"
+            }
+          ],
+          "fields": [
+            {
+              "id": "ratio",
+              "label": "Aspect ratio",
+              "type": "SELECT",
+              "required": true,
+              "choices": [
+                "1:1",
+                "9:16",
+                "16:9"
+              ]
+            }
+          ]
+        },
+        "PROP": {
+          "transport": "HTTP",
+          "models": [
+            {
+              "id": "midjen-base",
+              "label": "Midjen Base"
+            }
+          ],
+          "fields": [
+            {
+              "id": "ratio",
+              "label": "Aspect ratio",
+              "type": "SELECT",
+              "required": true,
+              "choices": [
+                "1:1",
+                "9:16",
+                "16:9"
+              ]
+            }
+          ]
+        },
+        "ENVIRONMENT": {
+          "transport": "HTTP",
+          "models": [
+            {
+              "id": "midjen-base",
+              "label": "Midjen Base"
+            }
+          ],
+          "fields": [
+            {
+              "id": "ratio",
+              "label": "Aspect ratio",
+              "type": "SELECT",
+              "required": true,
+              "choices": [
+                "1:1",
+                "9:16",
+                "16:9"
+              ]
+            }
+          ]
+        }
+      },
+      "requestOrigins": [
+        "https://vibes.ai"
+      ],
+      "mediaOrigins": [
+        "https://vibes.ai",
+        "https://scontent.xx.fbcdn.net",
+        "https://video.xx.fbcdn.net",
+        "https://lookaside.fbsbx.com",
+        "https://www.meta.ai"
+      ]
+    }
+  ]
+}
