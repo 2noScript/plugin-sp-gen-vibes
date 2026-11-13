@@ -13,7 +13,7 @@ npm test
 npm run build
 ```
 
-Source is in `src/`; `manifest.json` declares operations, account fields, login authority, approved origins and branding. `src/index.ts` exports the SDK plugin. Provider-side request/response code and its private DTOs are included here. The only shared Script-Pro dependency is the public [generation SDK](https://github.com/2noScript/script-pro-generation-sdk).
+Source is in `src/`; `manifest.json` declares operations, account fields, login authority, approved origins and branding. `src/index.ts` exports the SDK plugin. Provider-side request/response code and its private DTOs are included here. The only shared Script-Pro dependency is the public [generation SDK](https://github.com/2noScript/sp-gen-sdk).
 
 The build emits `dist/vibes-0.1.2.zip` containing `manifest.json` and `plugin.js`. Publish it as a new GitHub release asset and submit its manifest and digest to the [signed catalog](https://github.com/2noScript/sp-gen-plugins). Released version bytes must remain immutable.
 
