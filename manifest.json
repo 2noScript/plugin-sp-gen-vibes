@@ -2,12 +2,12 @@
   "pluginId": "vibes",
   "name": "Vibes",
   "publisher": "2noScript",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "contractVersion": 1,
   "providers": [
     {
       "providerId": "VIBES",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "contractVersion": 1,
       "name": "Vibes",
       "auth": {

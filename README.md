@@ -1,15 +1,26 @@
-# Vibes generation plugin
+# Vibes
 
-Downloadable Script-Pro provider package, version 0.1.1 (preview).
+Independent source and downloadable generation plugin for Script-Pro. Provider ID: `VIBES`.
 
-Install from **Settings → Plugins → Generation** in Script-Pro. Sign in with your own provider account and configure its project URL. Flow Google supports Google browser accounts; Vibes supports Meta browser accounts. Existing service sessions can be reused without copying cookies. Service sign-in and consent remain subject to the provider.
+## Development
 
-This repository distributes the compiled package and its manifest. The archive contains only `manifest.json` and `plugin.js`. Script-Pro verifies the signed catalog and archive digest before running it in a sandbox.
+Requires Node.js 22 or newer. No Script-Pro monorepo checkout is needed.
 
-- Provider ID: `VIBES`
-- Contract: 1
-- SHA-256: `bed006620522ce9a4785bc396cb175722110ce3ba4f0ac17f0f854551bfdd595`
-- [SDK](https://github.com/2noScript/script-pro-generation-sdk)
-- [Catalog](https://github.com/2noScript/sp-gen-plugins)
+```sh
+npm install
+npm run typecheck
+npm test
+npm run build
+```
 
-Runtime installation, isolation, and shared browser session behavior have automated integration coverage. Live generation with provider accounts is pending verification. No credentials or browser sessions are included.
+Source is in `src/`; `manifest.json` declares operations, account fields, login authority, approved origins and branding. `src/index.ts` exports the SDK plugin. Provider-side request/response code and its private DTOs are included here. The only shared Script-Pro dependency is the public [generation SDK](https://github.com/2noScript/script-pro-generation-sdk).
+
+The build emits `dist/vibes-0.1.2.zip` containing `manifest.json` and `plugin.js`. Publish it as a new GitHub release asset and submit its manifest and digest to the [signed catalog](https://github.com/2noScript/sp-gen-plugins). Released version bytes must remain immutable.
+
+## Use in Script-Pro
+
+Open **Settings → Plugins → Generation**, install the plugin, configure its project URL and sign in. Compatible saved browser accounts can be selected explicitly. The host supplies scoped HTTP, service-session operations and persistent browser profiles; plugin code cannot access Electron or Node APIs.
+
+Tests mock the upstream service and check request construction, result validation and error propagation. They do not establish live sign-in or generation compatibility. Google can reject embedded-browser login; external OAuth callbacks are not implemented by this release.
+
+Current source version: **0.1.2 preview**. Older release archives remain available for pinned tasks.
