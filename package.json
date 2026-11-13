@@ -1,15 +1,15 @@
 {
   "name": "@script-pro/plugin-vibes",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "node --test scripts/test.mjs",
-    "build": "script-pro-plugin-build manifest.json src/index.ts dist/vibes-0.1.2.zip"
+    "build": "script-pro-plugin-build manifest.json src/index.ts dist/vibes-0.2.0.zip"
   },
   "devDependencies": {
-    "@script-pro/generation-sdk": "https://github.com/2noScript/sp-gen-sdk/releases/download/v0.1.1/script-pro-generation-sdk-0.1.1.tgz",
+    "@script-pro/generation-sdk": "https://github.com/2noScript/sp-gen-sdk/releases/download/v0.2.0/script-pro-generation-sdk-0.2.0.tgz",
     "typescript": "^5.9.3",
     "esbuild": "0.25.12"
   }

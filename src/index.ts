@@ -7,6 +7,7 @@ import { VibesService } from "./provider";
 import { runProvider } from "./adapter";
 import { connectionFromHost } from "./connection";
 import manifest from "../manifest.json";
+import { ensureVibesSession } from "./session";
 
 const packageManifest = pluginManifestSchema.parse(manifest);
 
@@ -14,7 +15,7 @@ const provider = defineProvider({
   manifest: packageManifest.providers[0],
   async checkConnection(host) {
     try {
-      await host.session("vibes.session");
+      await ensureVibesSession(host);
       return { status: "CONNECTED" };
     } catch {
       return {
@@ -26,10 +27,12 @@ const provider = defineProvider({
   async generate(request, host) {
     const profile = connectionFromHost(host);
     const provider = new VibesService(
-      { getMetaSession: () => host.session("vibes.session") },
+      { ensureSession: () => ensureVibesSession(host) },
       (url, options) =>
         host.request({
           url,
+          transport: "BROWSER",
+          proxy: options.proxy,
           method: options.method,
           headers: options.headers,
           body:

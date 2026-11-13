@@ -2,16 +2,16 @@
   "pluginId": "vibes",
   "name": "Vibes",
   "publisher": "2noScript",
-  "version": "0.1.2",
-  "contractVersion": 1,
+  "version": "0.2.0",
+  "contractVersion": 2,
   "providers": [
     {
       "providerId": "VIBES",
-      "version": "0.1.2",
-      "contractVersion": 1,
+      "version": "0.2.0",
+      "contractVersion": 2,
       "name": "Vibes",
       "auth": {
-        "kind": "WEBVIEW",
+        "kind": "BROWSER",
         "loginUrl": "https://vibes.ai/",
         "navigationOrigins": [
           "https://vibes.ai",
@@ -31,16 +31,11 @@
           "label": "Project URL",
           "type": "TEXT",
           "required": true
-        },
-        {
-          "id": "proxyUrl",
-          "label": "HTTP proxy URL",
-          "type": "TEXT"
         }
       ],
       "operations": {
         "IMAGE": {
-          "transport": "HTTP",
+          "transport": "BROWSER",
           "models": [
             {
               "id": "midjen-base",
@@ -62,7 +57,7 @@
           ]
         },
         "VIDEO": {
-          "transport": "HTTP",
+          "transport": "BROWSER",
           "models": [
             {
               "id": "midjen-short",
@@ -99,7 +94,7 @@
           ]
         },
         "CHARACTER": {
-          "transport": "HTTP",
+          "transport": "BROWSER",
           "models": [
             {
               "id": "midjen-base",
@@ -121,7 +116,7 @@
           ]
         },
         "PROP": {
-          "transport": "HTTP",
+          "transport": "BROWSER",
           "models": [
             {
               "id": "midjen-base",
@@ -143,7 +138,7 @@
           ]
         },
         "ENVIRONMENT": {
-          "transport": "HTTP",
+          "transport": "BROWSER",
           "models": [
             {
               "id": "midjen-base",

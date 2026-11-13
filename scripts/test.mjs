@@ -15,11 +15,14 @@ const url = flow ? 'https://flow-content.google/image/fixture-media' : 'https://
 const calls = []
 const host = createTestHost({
   account: { id: 'fixture-account', fields: { projectUrl: flow ? 'https://flow.google.com/project/fixture' : 'https://vibes.ai/projects/fixture' } },
-  async session(operation) {
-    if (operation === 'flow.captcha') return { success: true, token: 'fixture-captcha' }
-    if (operation === 'flow.auth') return { at: 'fixture-at', projectId: 'fixture', cookieString: 'fixture=cookie' }
-    if (operation === 'vibes.session') return 'fixture-session'
-    throw new Error('Unexpected session operation')
+  async page(script) {
+    if (script.includes('grecaptcha')) return 'fixture-captcha'
+    return { at:'fixture-at', projectId:'fixture', sid:'fixture-sid', bl:'fixture-bl' }
+  },
+  async session(operation, args) {
+    assert.equal(operation, 'browser.cookies')
+    assert.equal(args[0], flow ? 'https://flow.google.com/' : 'https://vibes.ai/')
+    return [{name:flow ? 'SID' : 'meta_session',value:'fixture-session'}]
   },
   async request(request) {
     calls.push(request)
@@ -32,7 +35,7 @@ const host = createTestHost({
 
 test('service connection reports authentication state through the host', async () => {
   assert.equal((await provider.checkConnection(host)).status, 'CONNECTED')
-  const expired = createTestHost({ async session() { throw new Error('Expired session') } })
+  const expired = createTestHost({ async page() { throw new Error('Expired session') }, async session() { throw new Error('Expired session') } })
   assert.equal((await provider.checkConnection(expired)).status, 'AUTH_REQUIRED')
 })
 

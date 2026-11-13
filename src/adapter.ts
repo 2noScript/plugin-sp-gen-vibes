@@ -4,7 +4,7 @@ import type {
   GenerationOperation,
   JsonValue,
 } from "@script-pro/generation-sdk";
-import type { Connection } from './types';
+import type { Connection } from "./types";
 import type { IGenerationService } from "./validation";
 import type { GenerationResponseData } from "./types";
 
@@ -80,7 +80,10 @@ function toMediaResult(
           ].includes(key) && typeof value === "string",
       ),
     ),
-    metadata: Object.fromEntries(Object.entries({ ...response.metadata, seed: response.seed }).filter(([, value]) => value !== undefined)),
+    metadata: Object.fromEntries(
+      Object.entries({ ...response.metadata, seed: response.seed }).filter(
+        ([, value]) => value !== undefined,
+      ),
+    ),
   };
 }
-
