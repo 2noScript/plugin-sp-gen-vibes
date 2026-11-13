@@ -23,4 +23,4 @@ Open **Settings → Plugins → Generation**, install the plugin, configure its 
 
 Tests mock the upstream service and check request construction, result validation and error propagation. They do not establish live sign-in or generation compatibility. Google can reject embedded-browser login; external OAuth callbacks are not implemented by this release.
 
-Current source version: **0.1.2 preview**. Older release archives remain available for pinned tasks.
+Current source version: **0.1.2 preview**. Versioned archive copies are grouped in `releases/`. GitHub Release assets remain the download source used by Script-Pro; existing URLs and pinned tasks are unchanged. Local builds remain in the ignored `dist/` directory.
